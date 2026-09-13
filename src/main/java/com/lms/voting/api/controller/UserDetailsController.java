@@ -15,7 +15,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("api/v1/users")
-@CrossOrigin(origins = "http://localhost:5173/")
+@CrossOrigin(origins = "https://eballotuk.vercel.app/")
 public class UserDetailsController {
 
     @Autowired
