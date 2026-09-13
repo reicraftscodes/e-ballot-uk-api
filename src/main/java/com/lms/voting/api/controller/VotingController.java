@@ -13,11 +13,14 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/voting")
-@CrossOrigin(origins = "http://localhost:5173/")
+@CrossOrigin(origins = "https://eballotuk.vercel.app/")
 public class VotingController {
 
+    private final VotingService votingService;
     @Autowired
-    private VotingService votingService;
+    public VotingController(VotingService votingService) {
+        this.votingService = votingService;
+    }
 
     @PostMapping("/castVote")
     public ResponseEntity<VoteResponseDto> castVote(@Valid @RequestBody CastVoteRequestDto request) {
