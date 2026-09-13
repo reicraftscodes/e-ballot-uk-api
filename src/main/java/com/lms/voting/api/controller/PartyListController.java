@@ -18,9 +18,12 @@ import java.util.List;
 @CrossOrigin(origins = "https://eballotuk.vercel.app/")
 public class PartyListController {
 
-    @Autowired
-    private PartyListService partyListService;
+    private final PartyListService partyListService;
 
+    @Autowired
+    public PartyListController(PartyListService partyListService) {
+        this.partyListService = partyListService;
+    }
 
     @PostMapping(produces = "application/json")
     public ResponseEntity<PartyListDto> createPartyList(@RequestBody @Valid PartyListDto partyListDto) {

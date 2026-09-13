@@ -18,8 +18,12 @@ import java.util.List;
 @CrossOrigin(origins = "https://eballotuk.vercel.app/")
 public class UserDetailsController {
 
+    private final UserDetailsService userDetailsService;
+
     @Autowired
-    private UserDetailsService userDetailsService;
+    public UserDetailsController(UserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
 
     @PostMapping(produces = "application/json")
     public ResponseEntity<UserDetailsRequestDto> createUser(@RequestBody @Valid UserDetailsRequestDto userDetails) {
